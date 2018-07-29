@@ -1,8 +1,10 @@
-package Button;
+package button;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -36,10 +38,21 @@ public class Main extends Application {
             System.out.println("Hello");
         });
 
+        Button button1 = new Button("b1");
+        ImageView imageView = new ImageView("kek.jpg");
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(200);
+        button1.setGraphic(imageView);
+        DropShadow shadow = new DropShadow();
+        shadow.setColor(Color.AQUAMARINE);
+        shadow.setRadius(60);
+        button1.setOnAction(event -> button1.setEffect(shadow));
+
+        button.setStyle("-fx-base:#b6e7c9");
 
         Scene scene = new Scene(root);
 
-        root.getChildren().addAll(button, rectangle);
+        root.getChildren().addAll(button, rectangle, button1);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
